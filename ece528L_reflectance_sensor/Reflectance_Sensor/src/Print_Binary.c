@@ -14,6 +14,17 @@
 
 void Print_Binary(uint8_t value_to_convert)
 {
-    // Your Print_Binary function implementation goes here
-
+    char binVers[10];
+    for (int i = 0; i < 4; i++)
+    {
+    binVers[i] = '0' + (value_to_convert >> (7-i) & 1);
+    }
+    for (int i = 4; i < 8; i++)
+    {
+    binVers[i+1] = '0' + ((value_to_convert >> (7-i)) & 1);
+    }
+    binVers[4] = '_';
+    binVers[9] = '\0';
+    printf("Binary: %s", binVers);
 }
+

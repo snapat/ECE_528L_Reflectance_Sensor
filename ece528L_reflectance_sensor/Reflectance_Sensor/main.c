@@ -21,6 +21,10 @@
 #include "inc/Reflectance_Sensor.h"
 #include "inc/Print_Binary.h"
 
+#define
+
+void Detect_Line_Position(uint8_t reflectance_sensor_data);
+
 int main(void)
 {
     // Initialize the 48 MHz Clock
@@ -45,4 +49,51 @@ int main(void)
         Print_Binary(reflectance_sensor_data);
         Clock_Delay1ms(10);
     }
+}
+
+void Detect_Line_Position(uint8_t reflectance_sensor_data)
+{
+    switch(reflectance_sensor_data) {
+    case 0b00011000: {
+        LED1_Output(RED_LED_OFF);
+        LED2_Output(RGB_LED_GREEN);
+    } break;
+    case 0b00011100: {
+            LED1_Output(RED_LED_OFF);
+            LED2_Output(RGB_LED_YELLOW);
+        } break;
+    case 0b00111000: {
+            LED1_Output(RED_LED_OFF);
+            LED2_Output(RGB_LED_PINK);
+        } break;
+    case 0b00000001: {
+            LED1_Output(RED_LED_OFF);
+            LED2_Output(RGB_LED_WHITE);
+        } break;
+    case 0b10000000: {
+            LED1_Output(RED_LED_OFF);
+            LED2_Output(RGB_LED_SKYBLUE);
+        } break;
+    case 0b11111000: {
+            LED1_Output(RED_LED_ON);
+            LED2_Output(RGB_LED_WHITE);
+        } break;
+    case 0b00011111: {
+            LED1_Output(RED_LED_ON);
+            LED2_Output(RGB_LED_SKYBLUE);
+        } break;
+    case 0b11111111: {
+            LED1_Output(RED_LED_OFF);
+            LED2_Output(RGB_LED_BLUE);
+        } break;
+    case 0b00000000: {
+            LED1_Output(RED_LED_OFF);
+            LED2_Output(RGB_LED_RED);
+        } break;
+    default: {
+            LED1_Output(RED_LED_OFF);
+            LED2_Output(RGB_LED_OFF);
+        } break;
+
+
 }
