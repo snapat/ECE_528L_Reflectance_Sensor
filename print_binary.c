@@ -22,6 +22,11 @@ int main()
 }
 void Print_Binary(uint8_t value_to_convert)
 {
+  if (value_to_convert == 0) 
+  {
+   printf("0000_0000");
+   return; 
+  } 
  char binVers[10];
  for (int i = 0; i < 4; i++) 
  {
@@ -33,5 +38,5 @@ void Print_Binary(uint8_t value_to_convert)
  }
  binVers[4] = '_';
  binVers[9] = '\0';
-printf("Binary: %s", binVers);
+printf("Binary: %s\n", binVers);
 }

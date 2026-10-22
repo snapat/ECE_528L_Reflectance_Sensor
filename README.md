@@ -14,11 +14,14 @@ The Reflectance Sensor lab interfaces with the following:
 
 2. CTRL EVEN: P5.3
    CTRL ODD: P9.2
-   Both pulled to logic high by default
+   Both pulled to logic high by default, emitters on
 
 3.
+```c
 void P5_0_and_P9_7_Init (void)
-{
+{ 
+  P5->DIR &= ~(0x01);
+  P5->DIR &= ~(0x80);
   P5->SEL0 &= ~(0x01);
   P5->SEL1 &= ~(0x01);
   P9->SEL0 &= ~(0x80);
@@ -26,6 +29,4 @@ void P5_0_and_P9_7_Init (void)
   P5->DIR |= 0x01;
   P9->DIR |= 0x80;
 }
-
-4.
-In print_binary.c
+```

@@ -21,8 +21,6 @@
 #include "inc/Reflectance_Sensor.h"
 #include "inc/Print_Binary.h"
 
-#define
-
 void Detect_Line_Position(uint8_t reflectance_sensor_data);
 
 int main(void)
@@ -47,6 +45,7 @@ int main(void)
     {
         reflectance_sensor_data = Reflectance_Sensor_Read(1000);
         Print_Binary(reflectance_sensor_data);
+        Detect_Line_Position(reflectance_sensor_data);
         Clock_Delay1ms(10);
     }
 }
@@ -72,7 +71,7 @@ void Detect_Line_Position(uint8_t reflectance_sensor_data)
         } break;
     case 0b10000000: {
             LED1_Output(RED_LED_OFF);
-            LED2_Output(RGB_LED_SKYBLUE);
+            LED2_Output(RGB_LED_SKY_BLUE);
         } break;
     case 0b11111000: {
             LED1_Output(RED_LED_ON);
@@ -80,7 +79,7 @@ void Detect_Line_Position(uint8_t reflectance_sensor_data)
         } break;
     case 0b00011111: {
             LED1_Output(RED_LED_ON);
-            LED2_Output(RGB_LED_SKYBLUE);
+            LED2_Output(RGB_LED_SKY_BLUE);
         } break;
     case 0b11111111: {
             LED1_Output(RED_LED_OFF);
@@ -95,5 +94,5 @@ void Detect_Line_Position(uint8_t reflectance_sensor_data)
             LED2_Output(RGB_LED_OFF);
         } break;
 
-
+    }
 }
