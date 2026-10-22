@@ -21,7 +21,7 @@ The Reflectance Sensor lab interfaces with the following:
 void P5_0_and_P9_7_Init (void)
 { 
   P5->OUT &= ~(0x01);
-  P5->OUT &= ~(0x80);
+  P9->OUT &= ~(0x80);
   P5->SEL0 &= ~(0x01);
   P5->SEL1 &= ~(0x01);
   P9->SEL0 &= ~(0x80);

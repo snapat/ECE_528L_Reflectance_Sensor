@@ -24,7 +24,7 @@ void Print_Binary(uint8_t value_to_convert)
 {
   if (value_to_convert == 0) 
   {
-   printf("0000_0000\n");
+   printf("Binary: 0000_0000\n");
    return; 
   } 
  char binVers[10];
