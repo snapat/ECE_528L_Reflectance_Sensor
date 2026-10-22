@@ -16,7 +16,7 @@ void Print_Binary(uint8_t value_to_convert)
 {
     if (value_to_convert == 0)
       {
-       printf("0000_0000");
+       printf("0000_0000\n");
        return;
       }
     char binVers[10];
@@ -30,6 +30,6 @@ void Print_Binary(uint8_t value_to_convert)
     }
     binVers[4] = '_';
     binVers[9] = '\0';
-    printf("Binary: %s\n", binVers);
+    printf("Line Sensor: %s\n", binVers);
 }
 
