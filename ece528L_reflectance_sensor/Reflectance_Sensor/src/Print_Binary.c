@@ -30,6 +30,6 @@ void Print_Binary(uint8_t value_to_convert)
     }
     binVers[4] = '_';
     binVers[9] = '\0';
-    printf("Binary: %s", binVers);
+    printf("Binary: %s\n", binVers);
 }
 
